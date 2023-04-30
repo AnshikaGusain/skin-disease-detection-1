@@ -7,25 +7,35 @@
 			margin-top: 150px;
 		}
 
+		.btn-file {
+			position: relative;
+			overflow: hidden;
+		}
+
+		.btn-file input[type=file] {
+			position: absolute;
+			top: 0;
+			right: 0;
+			min-width: 100%;
+			min-height: 100%;
+			font-size: 100px;
+			text-align: right;
+			filter: alpha(opacity=0);
+			opacity: 0;
+			outline: none;
+			background: white;
+			cursor: inherit;
+			display: block;
+		}
+
 		#img-upload {
 			width: 25%;
 			display: block;
 
 		}
 
-		#skin-img {
-			width: 25%;
-			display: block;
-		}
-
-		.predhead {
-			color: #800000;
-		}
-
-		.disinfo {
-			margin-top: 50px;
-			width: 80%;
-			height: 500px;
+		#upload {
+			margin-top: 10px;
 		}
 	</style>
 	<!-- main css -->
@@ -75,16 +85,28 @@
 		</header>
 
 	</div>
-	<center>
-		<div class="container">
-			<img src='../static/data/{{img_file}}' alt='skin_disease_image' id='skin-img'>
-			<div>
-				<h3 class='predhead'>Disease Predicted:{{predictions}}</h3>
-				<h3 class='predhead'>Accuracy:{{acc}}</h3>
+	<div class="container">
+		<center>
+			<img id='img-upload' />
+		</center>
+		<center>
+			<div class="col-md-6" style='margin-left:250px;'>
+				<form class="form-group" action="../uploaded" method='post' enctype="multipart/form-data">
+					<label>Upload Image</label>
+					<div class="input-group">
+						<span class="input-group-btn">
+							<span class="btn btn-default btn-file">
+								Browse… <input type="file" id="imgInp" name="file">
+							</span>
+						</span>
+						<input type="text" class="form-control" readonly>
+
+					</div>
+					<input type='submit' id='upload' class='btn btn-lg btn-success' value='Upload'>
+				</form>
 			</div>
-		</div>
-		<iframe src='https://www.diseaseinfosearch.org/search?term={{predictions}}' class='disinfo'></iframe>
-	</center>
+		</center>
+	</div>
 	<div id="panel2" data-nav="about">
 		<h3 class="center-title">About Us</h3>
 		<div class="panel-inside">
@@ -158,20 +180,20 @@
 		<a class="pic-icon down2 nav" href="#platform"></a>
 	</div>
 	<!-- /#panel4 
-<div id="panel5" data-nav="platform">
-	<h3 class="center-title">The Platform</h3>
-	<div class="panel-inside">
-		<div id="panel5-sq1">
-			<div id="sq5-text">
-				A smartphone or tablet is the ideal platform for Lūbax.  The clinician does not need to obtain expensive hardware solutions or worry about expensive per-use charges per patient.  Lūbax is a simple, inexpensive system to identify skin lesions using a smartphone and tablet based platforms.
+		<div id="panel5" data-nav="platform">
+			<h3 class="center-title">The Platform</h3>
+			<div class="panel-inside">
+				<div id="panel5-sq1">
+					<div id="sq5-text">
+						A smartphone or tablet is the ideal platform for Lūbax.  The clinician does not need to obtain expensive hardware solutions or worry about expensive per-use charges per patient.  Lūbax is a simple, inexpensive system to identify skin lesions using a smartphone and tablet based platforms.
+					</div>
+				</div>
+				<img id="panel5-sq2" src="images/platforms.png" class="panel-img" alt="Lubax Platform"/>
+				<div class="clearfix"></div>
 			</div>
+			<a class="pic-icon down1 nav" href="#team"></a>
 		</div>
-		<img id="panel5-sq2" src="images/platforms.png" class="panel-img" alt="Lubax Platform"/>
-		<div class="clearfix"></div>
-	</div>
-	<a class="pic-icon down1 nav" href="#team"></a>
-</div>
- /#panel5 -->
+		 /#panel5 -->
 	<!-- /#panel6 -->
 	<div id="panel8" data-nav="news">
 		<h3 class="center-title">News</h3>

@@ -25,7 +25,7 @@ SKIN_CLASSES = {
 
 @app.route('/')
 def index():
-    return render_template('index.html', title='Home')
+    return render_template('upload.html', title='Home')
 
 @app.route('/uploaded', methods = ['GET', 'POST'])
 def upload_file():
