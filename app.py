@@ -34,11 +34,11 @@ def upload_file():
         with tempfile.NamedTemporaryFile(delete=False) as tmp:
             f.save(tmp.name)
             img_path = tmp.name
-        j_file = open('modelnew.json', 'r')
+        j_file = open('model.json', 'r')
         loaded_json_model = j_file.read()
         j_file.close()
         model = model_from_json(loaded_json_model)
-        model.load_weights('modelnew.h5')
+        model.load_weights('model.h5')
         img1 = load_img(img_path, target_size=(224,224))
         img1 = np.array(img1)
         img1 = img1.reshape((1,224,224,3))
